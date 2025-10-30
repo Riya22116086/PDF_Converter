@@ -5,16 +5,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-   "dev":"nodemon index.js",
+    "dev": "nodemon index.js",
     "start": "node index.js",
-    "build":"npm install --force && npm install --prefix Frontend --force && npm run build --prefix Frontend"
+    "build": "npm install --force && npm install --prefix Frontend --force && npm run build --prefix Frontend"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "docx-pdf": "^0.0.1",
+    "docx-pdf-converter": "^1.2.2",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "multer": "^2.0.2",
