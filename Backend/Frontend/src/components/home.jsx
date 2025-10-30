@@ -18,7 +18,7 @@ function Home() {
         const formData=new FormData();
         formData.append("file",selectedFile)
         try{
-            const response=await axios.post("http://localhost:3000/convertFile",formData,{
+            const response=await axios.post("https://pdf-converter-3-f7bh.onrender.com",formData,{
                 responseType:"blob",
             });
             console.log(response);
