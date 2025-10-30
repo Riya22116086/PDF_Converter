@@ -14,10 +14,11 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "docx-pdf-converter": "^1.2.2",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "mammoth": "^1.11.0",
     "multer": "^2.0.2",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "pdfkit": "^0.17.2"
   }
 }
