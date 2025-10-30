@@ -1,10 +1,14 @@
+const dotenv = require("dotenv");
+dotenv.config();
 const express=require("express");
 const multer  = require('multer');
 const cors=require("cors");
 const docxToPDF = require('docx-pdf');
 const path=require("path");
 const app=express();
-const port=3000;
+//const port=3000;
+const port = process.env.PORT || 3000;
+
 app.use(cors());
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -38,13 +42,22 @@ docxToPDF(req.file.path,outputPath,(err,result)=>{
  
 });
   }
-  catch{
+  catch(error){
     console.log(error);
     res.status(500).json({
         message:"Internal Server Error",
     });
   }
 })
+// deployment code
+if(process.env.NODE_ENV==="production"){
+const dirPath=path.resolve();
+app.use(express.static("Frontend/dist"));
+app.get((req,res)=>{
+res.sendFile(path.resolve(dirPath,"Frontend","dist","index.html"));
+}
+)
+}
 app.listen(port,()=>{
     console.log(`server is listeing on port ${port}`);
 });
